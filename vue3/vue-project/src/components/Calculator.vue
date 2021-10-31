@@ -1,9 +1,8 @@
 <template>
-<div>
-    {{num1}} {{opr}} {{num2}} = {{result}}
-</div>
+    <div>
+        {{ num1 }} {{ opr }} {{ num2 }} = {{ result }}
+    </div>
 </template>
-
 <script>
 export default {
     props : {
@@ -12,7 +11,7 @@ export default {
             default : 0,
         },
         num2 : {
-            type :Number,
+            type : Number,
             default : 0,
         },
         opr : {
@@ -27,18 +26,19 @@ export default {
             let result = this.num1;
             switch(this.opr) {
                 case '-' :
-                    this.num1 -= this.num2;
+                    result -= this.num2;
                     break;
-                case '*' :
+                case '*' : 
                     result *= this.num2;
-                case '/' :
+                    break;
+                case '/' : 
                     result /= this.num2;
-                
-                    result /= this.num2;
-
-
+                    break;
+                default :
+                    result += this.num2;
 
             }
+            return result;
         }
     }
 }

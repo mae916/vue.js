@@ -1,8 +1,8 @@
 <template>
-    <h1>Full Name : {{fullName}}</h1>
+    <h1>Full Name : {{ fullName }}</h1>
     <button type="button" @click="changeName()">변경</button>
 </template>
-<script>
+<script> 
 export default {
     data() {
         return {
@@ -11,24 +11,24 @@ export default {
             fullName : "",
         };
     },
+    /*
     computed : {
         fullName() {
-            this.firstName = tnis.lastName + " " + this.firstName;
-
+            return this.lastName + " " + this.firstName;
         }
-    },
-
+    }
+    */
     watch : {
         firstName() {
-            this.firstName = tnis.lastName + " " + this.firstName;
+            this.fullName = this.lastName + " " + this.firstName;
         },
         lastName() {
-            this.firstName = tnis.lastName + " " + this.firstName;
+            this.fullName = this.lastName + " " + this.firstName;
         }
     },
     methods : {
         changeName() {
-            this.firstName = "(변경) 이름";
+            this.firstName = "(변경)이름";
         }
     }
 }

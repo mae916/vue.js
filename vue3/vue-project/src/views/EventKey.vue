@@ -2,7 +2,8 @@
 <input type="text" v-model="keyValue" @keyup="checkValue">
 <br><br>
 <input type="text" @keyup.enter="checkEnter()">
-<br><br>
+<br>
+<br>
 <input type="text" @keyup.tab="checkTab()">
 </template>
 <script>
