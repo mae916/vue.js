@@ -1,0 +1,3 @@
+Storage
+    - localStorage: 삭제전까지 영구적으로 저장
+    - sessionStorage: 브라우저가 닫히기 전까지 저장
