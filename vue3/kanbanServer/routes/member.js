@@ -20,7 +20,7 @@ router.use(async (req, res) => {
 				}
 				break;
 			case "update": // 회원정보 수정
-				let result = member.update(data);
+				let result = await member.update(data);
 				break;
 			case "login" : // 로그인 처리 
 				const token = await member.login(data);

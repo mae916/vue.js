@@ -24,7 +24,7 @@ export default {
         async $update(data) {
             const token = this.$getToken();
             if (data instanceof FormData) {
-                data.append("token", this.$getToken());
+                data.append("token", token);
             } else {
                 data.token = token;
             }
