@@ -29,8 +29,8 @@ export default {
                 data.token = token;
             }
 
-            const result = await this.$request(this.apiURL, data, "POST");
-            console.log(result);
+            const result = await this.$request(this.requestURL, data, "POST");
+            return result;
         },
         /**
          * 로그인 

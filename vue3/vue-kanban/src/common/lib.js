@@ -7,7 +7,11 @@ export default {
             if (data && data instanceof FormData) {
                 data = this.$formDataToJson(data);
             }
-
+            
+            if (this.$isLogin()) {
+                data.memNo = this.$getMember().memNo;
+            }
+            
             try {
                 const result = await axios({
                     method,
@@ -50,15 +54,15 @@ export default {
 
             // 회원 정보가 없는 경우만 서버에 정보 요청 
             const token = sessionStorage.getItem("sessionId");
+            if (!token) {
+                return;
+            }
+
             const apiURL = this.$store.state.apiURL + "/member";
             const data = { mode : "get_member", token };
             const result = await this.$request(apiURL, data, "POST");
             if (result.success) {
                 this.$store.commit('setMember', result.data);
-            } else {
-                if (token) { // 토큰이 있지만 회원정보가 X, 만료된 경우 
-                    sessionStorage.removeItem('sessionId');
-                }
             }
         },
         /** 로그인 체크 */
