@@ -1,3 +1,5 @@
+const kanban = require('../models/kanban');
+
 const router = require('express').Router();
 
 router.use((req, res) => {
@@ -6,20 +8,32 @@ router.use((req, res) => {
 	let success = false;
 	let returnData = {};
 	let message = "";
-	switch (mode) {
-		/** 작업 추가 */
-		case "add": 
-			
-			break;
-		/** 작업 수정 */
-		case "edit" : 
-			break;
-		/** 작업 삭제 */
-		case "delete" :
-			break;
-		/** 작업 목록 */
-		case "getList" : 
-			break;
+	try {
+		switch (mode) {
+			/** 작업 추가 */
+			case "add": 
+			const idx = await kanban.addWork(data);
+			if (!idx) {
+				throw new Error("작업 등록 실패하였습니다.");
+			}
+
+			success = true;
+			returnData = { idx };
+				break;
+			/** 작업 수정 */
+			case "edit" : 
+			kanban.editWork(data);
+				break;
+			/** 작업 삭제 */
+			case "delete" :
+				break;
+			/** 작업 목록 */
+			case "getList" : 
+				break;
+		}
+	} catch(err) {
+		success = false;
+		message = err.message;
 	}
 	const _result = {
 		success, 
