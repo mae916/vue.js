@@ -2,7 +2,7 @@
 export default {
     created() {
         this.$logOut();
-        location.href='/home';
+        this.$router.push({ path : "/login"});
     }
 }
 </script>
