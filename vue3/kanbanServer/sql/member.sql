@@ -12,3 +12,6 @@ CREATE TABLE `member` (
   UNIQUE KEY `memId` (`memId`),
   KEY `ix_token` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+안될경우 이렇게 변경
+-> COLLATE=utf8mb4_general_ci
