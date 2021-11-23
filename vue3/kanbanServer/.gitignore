@@ -1,13 +1,5 @@
 .DS_Store
-<<<<<<< HEAD
-<<<<<<< HEAD
-node_modules
-=======
 /node_modules
->>>>>>> 6b944807b5c5337fb0be0b3c23acf307e36f45be
-=======
-/node_modules
->>>>>>> 6b944807b5c5337fb0be0b3c23acf307e36f45be
 /dist
 
 
